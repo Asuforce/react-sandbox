@@ -1,6 +1,6 @@
-import * as React from "react";
-import { connect } from "react-redux";
-import { addTodo } from "actions";
+import { addTodo } from 'actions';
+import * as React from 'react';
+import { connect } from 'react-redux';
 
 let AddTodo: any = ({ dispatch }: { dispatch: any }) => {
   let input: any;
@@ -14,7 +14,7 @@ let AddTodo: any = ({ dispatch }: { dispatch: any }) => {
             return;
           }
           dispatch(addTodo(input.value));
-          input.value = "";
+          input.value = '';
         }}
       >
         <input

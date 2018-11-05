@@ -1,6 +1,6 @@
-import * as React from "react";
-import * as PropTypes from "prop-types";
-import Todo from "./Todo";
+import * as PropTypes from 'prop-types';
+import * as React from 'react';
+import Todo from './Todo';
 
 const TodoList = ({ todos, onTodoClick }: { todos: any; onTodoClick: any }) => (
   <ul>
@@ -15,10 +15,10 @@ TodoList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       completed: PropTypes.bool.isRequired,
-      text: PropTypes.string.isRequired
-    }).isRequired
+      text: PropTypes.string.isRequired,
+    }).isRequired,
   ),
-  onTodoClick: PropTypes.func
+  onTodoClick: PropTypes.func,
 };
 
 export default TodoList;
