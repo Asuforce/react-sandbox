@@ -18,14 +18,14 @@ function addTodo(text: string) {
   };
 }
 
-function toggleTodo(index: number) {
+export function toggleTodo(index: number) {
   return {
     type: TOGGLE_TODO,
     index
   };
 }
 
-export function setVisibilityFilter(filter) {
+export function setVisibilityFilter(filter: any) {
   return {
     type: SET_VISIBILITY_FILTER,
     filter
