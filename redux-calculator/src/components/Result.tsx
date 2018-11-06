@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-export default () => (
+export default ({ result }: { result: number }) => (
   <div>
-    Result: <span>some value</span>
+    Result: <span>{result}</span>
   </div>
 );
