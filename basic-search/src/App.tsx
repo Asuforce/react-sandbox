@@ -1,18 +1,34 @@
-import * as React from 'react';
+import * as actionsAll from "actions";
+import * as React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import SearchButton from "SearchButton";
 
-class App extends React.Component {
+interface IProps {
+  actions: {
+    searchAsync: () => void;
+  };
+}
+
+class App extends React.Component<IProps, {}> {
+  public handler = () => {
+    this.props.actions.searchAsync();
+  };
+
   public render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
-    );
+    return <SearchButton onClick={this.handler} />;
   }
 }
 
-export default App;
+const mapStateToProps = (state: any) => ({
+  search: state.search
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  actions: bindActionCreators(actionsAll, dispatch)
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
