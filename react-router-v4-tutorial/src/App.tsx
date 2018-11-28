@@ -38,11 +38,12 @@ const FRIENDS = [
 
 const friendById = (id: string) => FRIENDS.find(friend => friend.id === id);
 
-const FriendList = () => (
+const FriendList = (props: any) => (
   <div>
     {FRIENDS.map(friend => (
       <li key={friend.id}>
         <Link to={`/friends/${friend.id}`}>{friend.nameJa}</Link>
+        <button onClick={() => props.handleVote(friend.id)}>Vote</button>
       </li>
     ))}
   </div>
@@ -51,6 +52,7 @@ const FriendList = () => (
 const Friend = (props: any) => {
   const { id } = props.match.params;
   const friend = friendById(id);
+  const vote = props.votes[id];
 
   const containerStyle = {
     border: '1px gray solid',
@@ -73,17 +75,49 @@ const Friend = (props: any) => {
         <h1 style={contentsStyle}>{friend.nameJa}</h1>
         <p style={contentsStyle}>{friend.nameEn}</p>
       </div>
+      <h1>Vote: {vote}</h1>
     </div>
   );
 };
 
-const Friends = () => (
-  <div>
-    <h2>Friends</h2>
-    <Route exact={true} path="/friends" component={FriendList} />
-    <Route path="/friends/:id" component={Friend} />
-  </div>
-);
+class Friends extends React.Component {
+  constructor(props: any) {
+    super(props);
+    this.state = {};
+  }
+
+  componentWillMount() {
+    FRIENDS.forEach(friend => {
+      this.setState({
+        ...this.state,
+        [friend.id]: 0,
+      });
+    });
+  }
+
+  handleVote = (id: string) => {
+    this.setState({
+      [id]: this.state[id] + 1,
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <h2>Friends</h2>
+        <Route
+          exact={true}
+          path="/friends"
+          render={() => <FriendList handleVote={this.handleVote} />}
+        />
+        <Route
+          path="/friends/:id"
+          render={props => <Friend match={props.match} votes={this.state} />}
+        />
+      </div>
+    );
+  }
+}
 
 const App = () => (
   <BrowserRouter>
