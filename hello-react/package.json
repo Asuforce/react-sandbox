@@ -1,0 +1,70 @@
+{
+  "name": "react-sandbox",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/object-assign": "^4.0.30",
+    "@types/react": "^16.4.18",
+    "@types/react-dom": "^16.0.9",
+    "@types/react-redux": "^6.0.9",
+    "@types/redux": "^3.6.0",
+    "@types/redux-logger": "^3.0.6",
+    "@types/redux-thunk": "^2.1.0",
+    "object-assign": "^4.1.1",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-redux": "^5.1.0",
+    "react-scripts-ts": "3.1.0",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^5.1.1",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
+    "lint": "tslint --project ./ 'src/**/*.{ts,tsx}'; stylelint 'src/**/*.css'",
+    "tslint-check": "tslint-config-prettier-check ./tslint.json"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.5",
+    "@types/node": "^10.12.0",
+    "husky": "^1.1.2",
+    "postcss": "^7.0.5",
+    "postcss-syntax": "^0.34.0",
+    "prettier": "^1.14.3",
+    "prettier-stylelint": "^0.4.2",
+    "stylelint": "^9.7.1",
+    "stylelint-config-idiomatic-order": "^6.1.0",
+    "stylelint-config-prettier": "^4.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.1.3"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "useTabs": false
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-idiomatic-order",
+      "stylelint-config-prettier",
+      "./node_modules/prettier-stylelint/config.js"
+    ],
+    "rules": {
+      "indentation": 2,
+      "string-quotes": "single"
+    }
+  }
+}
