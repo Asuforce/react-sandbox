@@ -1,3 +1,4 @@
+import Contact from 'Contact';
 import NavLinks from 'NavLinks';
 import * as React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -10,7 +11,6 @@ class App extends React.Component {
   public render() {
     const Home = () => <h1>Home Component</h1>;
     const About = () => <h1>About Component</h1>;
-    const Contact = () => <h1>Contact Component</h1>;
     const Admin = () => <h1>Admin Component</h1>;
     const Login = () => <h1>Login Component</h1>;
 
