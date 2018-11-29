@@ -1,6 +1,6 @@
 import NavLinks from 'NavLinks';
 import * as React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props: any) {
@@ -8,12 +8,26 @@ class App extends React.Component {
   }
 
   public render() {
+    const Home = () => <h1>Home Component</h1>;
+    const About = () => <h1>About Component</h1>;
+    const Contact = () => <h1>Contact Component</h1>;
+    const Admin = () => <h1>Admin Component</h1>;
+    const Login = () => <h1>Login Component</h1>;
+
     return (
-      <Router>
+      <BrowserRouter>
         <div>
           <NavLinks />
+          <Switch>
+            <Route exact={true} path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/admin" component={Admin} />
+            <Route path="/login" component={Login} />
+            <Route render={() => <h1>404 Error</h1>} />
+          </Switch>
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }

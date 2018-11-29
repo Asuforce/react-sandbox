@@ -12,10 +12,10 @@
     &:hover {
       opacity: 0.75;
     }
-
-    .active {
-      color: '#000';
-      text-decoration: underline;
-    }
   }
+}
+
+.link.active {
+  color: '#000';
+  text-decoration: underline;
 }
