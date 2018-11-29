@@ -1,4 +1,6 @@
+import NavLinks from 'NavLinks';
 import * as React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props: any) {
@@ -6,7 +8,13 @@ class App extends React.Component {
   }
 
   public render() {
-    return <h1>Hello World!</h1>;
+    return (
+      <Router>
+        <div>
+          <NavLinks />
+        </div>
+      </Router>
+    );
   }
 }
 
