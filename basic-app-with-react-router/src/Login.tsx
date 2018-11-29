@@ -1,5 +1,6 @@
 import { AppState } from 'Admin';
 import * as React from 'react';
+import { Prompt } from 'react-router-dom';
 
 interface LoginProps {
   history: any;
@@ -7,6 +8,7 @@ interface LoginProps {
 
 interface LoginStates {
   password: string;
+  showProptOnNav: boolean;
 }
 
 class Login extends React.Component<LoginProps, LoginStates> {
@@ -15,12 +17,14 @@ class Login extends React.Component<LoginProps, LoginStates> {
 
     this.state = {
       password: '',
+      showProptOnNav: false,
     };
   }
 
   savePassword = (e: any) => {
     this.setState({
       password: e.target.value,
+      showProptOnNav: e.target.value.length > 0,
     });
   };
 
@@ -47,6 +51,10 @@ class Login extends React.Component<LoginProps, LoginStates> {
         />
 
         <button type="submit">Submit</button>
+        <Prompt
+          when={this.state.showProptOnNav}
+          message="Are you sure? Your data will be lost."
+        />
       </form>
     );
   }
