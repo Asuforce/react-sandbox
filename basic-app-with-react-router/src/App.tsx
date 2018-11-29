@@ -1,5 +1,6 @@
 import Admin from 'Admin';
 import Contact from 'Contact';
+import Login from 'Login';
 import NavLinks from 'NavLinks';
 import * as React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -12,7 +13,6 @@ class App extends React.Component {
   public render() {
     const Home = () => <h1>Home Component</h1>;
     const About = () => <h1>About Component</h1>;
-    const Login = () => <h1>Login Component</h1>;
 
     return (
       <BrowserRouter>
